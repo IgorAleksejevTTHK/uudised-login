@@ -1,0 +1,16 @@
+<%- include("partials/head") %>
+<%- include("partials/navbar") %>
+
+<div class="container">
+    <h1><%= item.title %></h1>
+    <p><%= item.content %></p>
+
+    <% if (user && user.role === 'admin') { %>
+        <a class="btn btn-primary" href="/edit/<%= item.id %>">Muuda</a>
+        <form action="/delete/<%= item.id %>" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-danger">Kustuta</button>
+        </form>
+    <% } %>
+</div>
+
+<%- include("partials/footer") %>
